@@ -1,0 +1,23 @@
+Account_Code,Account_Name,Account_Type,BCDKT_Category,BCDKT_Code
+1110,Cash on Hand,Asset,Assets,A110
+1120,Bank Deposits,Asset,Assets,A120
+1130,Loans to Customers,Asset,Assets,A130
+1140,Investments,Asset,Assets,A140
+1150,Fixed Assets,Asset,Assets,A150
+2110,Customer Deposits,Liability,Liabilities,B210
+2120,Short-term Debt,Liability,Liabilities,B220
+2130,Long-term Debt,Liability,Liabilities,B230
+2140,Accrued Expenses,Liability,Liabilities,B240
+2150,Other Liabilities,Liability,Liabilities,B250
+3110,Share Capital,Equity,Equity,C310
+3120,Retained Earnings,Equity,Equity,C320
+3130,Additional Capital,Equity,Equity,C330
+4110,Interest Income,Income,Income,D410
+4120,Fee Income,Income,Income,D420
+4130,Trading Income,Income,Income,D430
+4140,Other Income,Income,Income,D440
+5110,Interest Expense,Expense,Expenses,E510
+5120,Operating Expenses,Expense,Expenses,E520
+5130,Personnel Expenses,Expense,Expenses,E530
+5140,Administrative Expenses,Expense,Expenses,E540
+5150,Other Expenses,Expense,Expenses,E550

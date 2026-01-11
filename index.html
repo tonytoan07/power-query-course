@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Data Automation Training Course</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292f;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .module-card {
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .module-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-title {
+            color: #0969da;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-description {
+            color: #656d76;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .module-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background: #0969da;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0860ca;
+        }
+
+        .btn-secondary {
+            background: #f6f8fa;
+            color: #24292f;
+            border: 1px solid #d1d9e0;
+        }
+
+        .btn-secondary:hover {
+            background: #f3f4f6;
+        }
+
+        .course-info {
+            background: #f6f8fa;
+            border-left: 4px solid #0969da;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-complete {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0969da;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="language-switcher">
+            <a href="index.html" class="lang-btn active" onclick="switchLanguage('en')">EN</a>
+            <a href="index_vi.html" class="lang-btn" onclick="switchLanguage('vi')">VI</a>
+        </div>
+        <div class="container">
+            <h1>Excel Data Automation Training Course</h1>
+            <div class="subtitle">Khóa học Tự động hóa & Trực quan hóa dữ liệu Excel cho Ngân hàng</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="course-info">
+            <h3>🎯 Course Overview</h3>
+            <p>This comprehensive 2-day course teaches banking professionals how to automate Excel reporting processes,
+                specifically focusing on Vietnamese Balance Sheet (BCDKT) reporting requirements using realistic
+                12-million record datasets.</p>
+
+            <p><strong>Duration:</strong> 2 days (12 hours) | <strong>Format:</strong> Hands-on workshops |
+                <strong>Level:</strong> Beginner to Intermediate
+            </p>
+        </div>
+
+        <h2>Training Modules (Streamlined 5-Module Structure)</h2>
+
+        <div class="module-grid">
+            <div class="module-card">
+                <div class="module-title">Module 1: Environment Setup</div>
+                <div class="module-description">
+                    Set up Excel environment and explore the large banking transaction dataset (6M records). Verify
+                    system performance with realistic data volumes.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_01_overview/labs/lab_01_setup.html" class="btn btn-primary lab-link"
+                        data-en="modules/module_01_overview/labs/lab_01_setup.html"
+                        data-vi="modules/module_01_overview/labs/lab_01_setup_vi.html">Lab Instructions</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-title">Module 2: Data Import & Cleaning</div>
+                <div class="module-description">
+                    Import and clean the complete banking transaction dataset. Combine multiple monthly files and
+                    connect to account information.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_02_power_query_basics/labs/lab_02_power_query_basics.html"
+                        class="btn btn-primary lab-link"
+                        data-en="modules/module_02_power_query_basics/labs/lab_02_power_query_basics.html"
+                        data-vi="modules/module_02_power_query_basics/labs/lab_02_power_query_basics_vi.html">Lab
+                        Instructions</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-title">Module 3: Data Preparation</div>
+                <div class="module-description">
+                    Prepare data for dashboard creation. Add period groupings, create summary calculations, and ensure
+                    data is ready for target dashboard.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_03_power_query_advanced/labs/lab_03_power_query_advanced.html"
+                        class="btn btn-primary lab-link"
+                        data-en="modules/module_03_power_query_advanced/labs/lab_03_power_query_advanced.html"
+                        data-vi="modules/module_03_power_query_advanced/labs/lab_03_power_query_advanced_vi.html">Lab
+                        Instructions</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-title">Module 4: Simple Calculations</div>
+                <div class="module-description">
+                    Connect tables and use pre-built calculations. Create balance sheet summaries and variance analysis
+                    using ready-made formulas.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_04_data_model_dax/labs/lab_04_data_model_dax.html"
+                        class="btn btn-primary lab-link"
+                        data-en="modules/module_04_data_model_dax/labs/lab_04_data_model_dax.html"
+                        data-vi="modules/module_04_data_model_dax/labs/lab_04_data_model_dax_vi.html">Lab
+                        Instructions</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-title">Module 5: Complete Dashboard & Reports</div>
+                <div class="module-description">
+                    Build the exact target dashboard with KPI cards, interactive charts, and professional reports.
+                    Create executive summaries and export capabilities.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_05_pivot_tables/labs/lab_05_complete_dashboard.html"
+                        class="btn btn-primary lab-link"
+                        data-en="modules/module_05_pivot_tables/labs/lab_05_complete_dashboard.html"
+                        data-vi="modules/module_05_pivot_tables/labs/lab_05_complete_dashboard_vi.html">Lab
+                        Instructions</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-info">
+            <h3>📊 Sample Data</h3>
+            <p><strong>Large Dataset:</strong> 6 million banking transaction records (500k per month)</p>
+            <p><strong>File Location:</strong> <code>training-materials/data/raw/transactions/</code></p>
+            <p><strong>Supporting Files:</strong> Chart of accounts, account hierarchy, exchange rates</p>
+
+            <h3>🎯 Final Deliverable</h3>
+            <p>Professional financial dashboard matching the target design with:</p>
+            <ul>
+                <li>KPI cards: Total Assets, Liabilities, Equity, Current Ratio</li>
+                <li>Interactive charts: Asset structure, liability mix, equity trends</li>
+                <li>Period comparison: Q1/Q2/Q3 2024 functionality</li>
+                <li>Professional formatting and export capabilities</li>
+            </ul>
+        </div>
+
+        <div class="course-info">
+            <h3>💡 Key Features</h3>
+            <ul>
+                <li><strong>Realistic Scale:</strong> Work with 6M+ records from day one</li>
+                <li><strong>Non-Technical Focus:</strong> Simplified for banking professionals</li>
+                <li><strong>Target-Driven:</strong> Every step builds toward final dashboard</li>
+                <li><strong>Practical Skills:</strong> Immediately applicable in banking operations</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Add active class to clicked button
+            if (lang === 'en') {
+                document.querySelector('.lang-btn[onclick*="en"]').classList.add('active');
+            } else {
+                document.querySelector('.lang-btn[onclick*="vi"]').classList.add('active');
+            }
+
+            // Update all lab links
+            document.querySelectorAll('.lab-link').forEach(link => {
+                const newHref = link.getAttribute('data-' + lang);
+                if (newHref) {
+                    link.href = newHref;
+                }
+            });
+
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            switchLanguage(savedLang);
+        });
+    </script>
+</body>
+
+</html>

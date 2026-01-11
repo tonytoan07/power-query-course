@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa học Tự động hóa Dữ liệu Excel</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292f;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .module-card {
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .module-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-title {
+            color: #0969da;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-description {
+            color: #656d76;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .module-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background: #0969da;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0860ca;
+        }
+
+        .btn-secondary {
+            background: #f6f8fa;
+            color: #24292f;
+            border: 1px solid #d1d9e0;
+        }
+
+        .btn-secondary:hover {
+            background: #f3f4f6;
+        }
+
+        .course-info {
+            background: #f6f8fa;
+            border-left: 4px solid #0969da;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-complete {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0969da;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="language-switcher">
+            <a href="index.html" class="lang-btn">EN</a>
+            <a href="index_vi.html" class="lang-btn active">VI</a>
+        </div>
+        <div class="container">
+            <h1>Khóa học Tự động hóa Dữ liệu Excel</h1>
+            <div class="subtitle">Tự động hóa & Trực quan hóa dữ liệu Excel cho Ngân hàng</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="course-info">
+            <h3>🎯 Tổng quan Khóa học</h3>
+            <p>Khóa học toàn diện 2 ngày này dạy các chuyên gia ngân hàng cách tự động hóa quy trình báo cáo Excel,
+                tập trung đặc biệt vào yêu cầu báo cáo Bảng cân đối kế toán (BCDKT) của Việt Nam với bộ dữ liệu
+                thực tế 12 triệu bản ghi.</p>
+
+            <p><strong>Thời lượng:</strong> 2 ngày (12 giờ) | <strong>Hình thức:</strong> Workshop thực hành |
+                <strong>Trình độ:</strong> Cơ bản đến Trung cấp
+            </p>
+        </div>
+
+        <h2>Các Module Đào tạo (Cấu trúc 5 Module được Tối ưu)</h2>
+
+        <div class="module-grid">
+            <div class="module-card">
+                <div class="module-title">Module 1: Thiết lập Môi trường</div>
+                <div class="module-description">
+                    Thiết lập môi trường Excel và khám phá bộ dữ liệu giao dịch ngân hàng lớn (6M bản ghi). Xác minh
+                    hiệu suất hệ thống với khối lượng dữ liệu thực tế.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_01_overview/labs/lab_01_setup_vi.html" class="btn btn-primary">Hướng dẫn
+                        Lab</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-title">Module 2: Import & Làm sạch Dữ liệu</div>
+                <div class="module-description">
+                    Import và làm sạch toàn bộ bộ dữ liệu giao dịch ngân hàng. Kết hợp nhiều file theo tháng và
+                    kết nối với thông tin tài khoản.
+
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_02_power_query_basics/labs/lab_02_power_query_basics_vi.html"
+                        class="btn btn-primary">Hướng dẫn Lab</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-title">Module 3: Chuẩn bị Dữ liệu</div>
+                <div class="module-description">
+                    Chuẩn bị dữ liệu để tạo dashboard. Thêm nhóm thời kỳ, tạo tính toán tổng hợp và đảm bảo
+                    dữ liệu sẵn sàng cho dashboard mục tiêu.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_03_power_query_advanced/labs/lab_03_power_query_advanced_vi.html"
+                        class="btn btn-primary">Hướng dẫn Lab</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-title">Module 4: Tính toán Đơn giản</div>
+                <div class="module-description">
+                    Kết nối bảng và sử dụng các tính toán có sẵn. Tạo tóm tắt bảng cân đối kế toán và phân tích
+                    chênh lệch sử dụng công thức có sẵn.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_04_data_model_dax/labs/lab_04_data_model_dax_vi.html"
+                        class="btn btn-primary">Hướng dẫn Lab</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-title">Module 5: Dashboard & Báo cáo Hoàn chỉnh</div>
+                <div class="module-description">
+                    Xây dựng dashboard mục tiêu chính xác với KPI cards, biểu đồ tương tác và báo cáo chuyên nghiệp.
+                    Tạo tóm tắt điều hành và khả năng xuất dữ liệu.
+                </div>
+                <div class="module-links">
+                    <a href="modules/module_05_pivot_tables/labs/lab_05_complete_dashboard_vi.html"
+                        class="btn btn-primary">Hướng dẫn Lab</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-info">
+            <h3>📊 Dữ liệu Mẫu</h3>
+            <p><strong>Bộ dữ liệu Lớn:</strong> 6 triệu bản ghi giao dịch ngân hàng (500k mỗi tháng)</p>
+            <p><strong>Vị trí File:</strong> <code>training-materials/data/raw/transactions/</code></p>
+            <p><strong>File Hỗ trợ:</strong> Hệ thống tài khoản, phân cấp tài khoản, tỷ giá hối đoái</p>
+
+            <h3>🎯 Sản phẩm Cuối cùng</h3>
+            <p>Dashboard tài chính chuyên nghiệp phù hợp với thiết kế mục tiêu với:</p>
+            <ul>
+                <li>KPI cards: Tổng Tài sản, Nợ phải trả, Vốn chủ sở hữu, Tỷ số Thanh toán</li>
+                <li>Biểu đồ tương tác: Cấu trúc tài sản, cơ cấu nợ, xu hướng vốn chủ sở hữu</li>
+                <li>So sánh thời kỳ: Chức năng Q1/Q2/Q3 2024</li>
+                <li>Định dạng chuyên nghiệp và khả năng xuất dữ liệu</li>
+            </ul>
+        </div>
+
+        <div class="course-info">
+            <h3>💡 Tính năng Chính</h3>
+            <ul>
+                <li><strong>Quy mô Thực tế:</strong> Làm việc với 6M+ bản ghi từ ngày đầu</li>
+                <li><strong>Tập trung Phi kỹ thuật:</strong> Đơn giản hóa cho các chuyên gia ngân hàng</li>
+                <li><strong>Hướng Mục tiêu:</strong> Mọi bước đều hướng tới dashboard cuối cùng</li>
+                <li><strong>Kỹ năng Thực tế:</strong> Có thể áp dụng ngay trong hoạt động ngân hàng</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

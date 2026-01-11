@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1: Thiết lập Môi trường - Khóa học Tự động hóa Dữ liệu Excel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292f;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
+            color: white;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #0969da;
+            border-bottom: 2px solid #d1d9e0;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            color: #24292f;
+            margin-top: 1.5rem;
+        }
+
+        .lab-info {
+            background: #f6f8fa;
+            border-left: 4px solid #0969da;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .step-box {
+            background: white;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .step-number {
+            background: #0969da;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #f6f8fa;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            border: 1px solid #d1d9e0;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .alert-info {
+            background: #e6f3ff;
+            border: 1px solid #0969da;
+            color: #0969da;
+        }
+
+        .alert-success {
+            background: #e6ffed;
+            border: 1px solid #28a745;
+            color: #28a745;
+        }
+
+        .alert-warning {
+            background: #fff8e6;
+            border: 1px solid #f0ad4e;
+            color: #856404;
+        }
+
+        ul,
+        ol {
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        .lab-image {
+            max-width: 700px;
+            width: 100%;
+            height: auto;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lab-figure {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: #656d76;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .deliverables {
+            background: #e6f3ff;
+            border: 1px solid #0969da;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 2rem 0;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0969da;
+            border-color: white;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 3rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #d1d9e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="language-switcher">
+            <a href="lab_01_setup.html" class="lang-btn">EN</a>
+            <a href="lab_01_setup_vi.html" class="lang-btn active">VI</a>
+        </div>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../../index.html">Trang chủ Khóa học</a> >
+                Module 1 >
+                Lab 1
+            </div>
+            <h1>Lab 1: Thiết lập Môi trường & Khám phá Dữ liệu</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="lab-info">
+            <strong>Tổng quan Lab:</strong> Thiết lập môi trường Excel cho tự động hóa dữ liệu ngân hàng và khám phá bộ
+            dữ liệu BCDKT mẫu.
+            <br><strong>Thời gian:</strong> 2 giờ | <strong>Độ khó:</strong> Cơ bản
+        </div>
+
+        <h2>Yêu cầu Tiên quyết</h2>
+        <ul>
+            <li>Microsoft Excel 365 hoặc Excel 2019</li>
+            <li>Quyền quản trị để cài đặt add-in</li>
+            <li>File dữ liệu ngân hàng mẫu (được cung cấp)</li>
+            <li>Hiểu biết cơ bản về giao diện Excel</li>
+        </ul>
+
+        <h2>Mục tiêu Lab</h2>
+        <p>Sau khi hoàn thành lab này, bạn sẽ có thể:</p>
+        <ul>
+            <li>Cấu hình Excel cho Power Query và data modeling</li>
+            <li>Kích hoạt các add-in cần thiết cho phân tích dữ liệu ngân hàng</li>
+            <li>Điều hướng và hiểu cấu trúc dữ liệu BCDKT mẫu</li>
+            <li>Xác minh môi trường sẵn sàng cho các module nâng cao</li>
+        </ul>
+
+        <h2>Exercise 1: Khám phá Bộ dữ liệu Lớn</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Kiểm tra Bộ dữ liệu Giao dịch</h3>
+            <p>Điều hướng đến bộ dữ liệu giao dịch lớn:</p>
+            <ul>
+                <li><code>training-materials/data/raw/transactions/</code> (12 file hàng tháng)</li>
+                <li>Mỗi file chứa ~500,000 bản ghi</li>
+                <li>Tổng bộ dữ liệu: ~6 triệu giao dịch ngân hàng (500K mỗi tháng)</li>
+                <li><code>training-materials/data/raw/chart_of_accounts.csv</code></li>
+                <li><code>training-materials/data/raw/account_hierarchy.csv</code></li>
+            </ul>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Mở File Hàng tháng Mẫu</h3>
+            <ol>
+                <li>Mở <code>transactions_2024_01.csv</code> trong Excel</li>
+                <li>Xem lại cấu trúc dữ liệu (500K+ dòng):
+                    <ul>
+                        <li><strong>Date:</strong> Ngày giao dịch</li>
+                        <li><strong>Account_Code:</strong> Mã tài khoản ngân hàng 4 chữ số</li>
+                        <li><strong>Description:</strong> Mô tả giao dịch bằng tiếng Việt</li>
+                        <li><strong>Transaction_Type:</strong> Debit hoặc Credit</li>
+                        <li><strong>Amount:</strong> Số tiền giao dịch bằng VND</li>
+                        <li><strong>Currency:</strong> Mã tiền tệ (VND, USD, EUR)</li>
+                    </ul>
+                </li>
+                <li>Lưu ý khối lượng dữ liệu và hiệu suất Excel</li>
+            </ol>
+        </div>
+
+        <h2>Exercise 2: Kiểm tra Hiệu suất Hệ thống</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Kiểm tra Import File Lớn</h3>
+            <ol>
+                <li>Tạo workbook Excel mới</li>
+                <li>Đi đến <strong>Data > Get Data > From File > From Text/CSV</strong></li>
+                <li>Chọn <code>training-materials/data/raw/transactions/transactions_2024_01.csv</code> (500,000 bản
+                    ghi)</li>
+                <li>Nhấp <strong>Load</strong> (không phải Transform Data)</li>
+                <li>Giám sát hiệu suất Excel và sử dụng bộ nhớ</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 1 - excercise 2 - 1.png" alt="Import CSV file" class="lab-image">
+                <p class="image-caption">Import file CSV giao dịch qua Get Data</p>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Ghi chú Hiệu suất:</strong>
+                <ul>
+                    <li>Việc tải có thể mất 30-60 giây</li>
+                    <li>Excel nên xử lý 500K dòng một cách hiệu quả</li>
+                    <li>Nếu chậm, hãy đóng các ứng dụng khác</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Xác minh Tải Dữ liệu</h3>
+            <ol>
+                <li>Kiểm tra thanh trạng thái - nên hiển thị ~500,000 dòng</li>
+                <li>Cuộn qua dữ liệu để xác minh tính đầy đủ</li>
+                <li>Kiểm tra tất cả các cột đã tải chính xác</li>
+                <li>Lưu ý hiệu suất Excel với bộ dữ liệu lớn</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 1 - excercise 2 - 2.png" alt="Verify data load" class="lab-image">
+                <p class="image-caption">Xác minh dữ liệu đã tải chính xác với 500K dòng</p>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Lưu và Đóng</h3>
+            <ol>
+                <li>Lưu workbook dưới tên "Performance_Test.xlsx"</li>
+                <li>Đóng file để giải phóng bộ nhớ</li>
+                <li>Điều này xác nhận hệ thống có thể xử lý toàn bộ bộ dữ liệu</li>
+            </ol>
+        </div>
+
+        <h2>Exercise 3: Xem trước Dữ liệu Dashboard</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Phân tích Dữ liệu Cơ bản</h3>
+            <ol>
+                <li>Với dữ liệu giao dịch đã tải, tạo pivot table đơn giản:</li>
+                <ul>
+                    <li>Đi đến <strong>Insert > PivotTable</strong></li>
+                    <li>Kéo <strong>TransactionType</strong> vào Rows</li>
+                    <li>Kéo <strong>Amount</strong> vào Values</li>
+                    <li>Điều này hiển thị tổng debit và credit</li>
+                </ul>
+                <li>Bạn nên thấy:
+                    <ul>
+                        <li><strong>DEBIT</strong>: Số tiền dương lớn (~$8.6B)</li>
+                        <li><strong>CREDIT</strong>: Số tiền âm lớn (~-$8.6B)</li>
+                        <li><strong>Grand Total</strong>: Nên bằng 0.00 (cân bằng)</li>
+                    </ul>
+                </li>
+                <li><strong>Xác minh kế toán đúng:</strong> Debits (dương) + Credits (âm) = 0</li>
+                <li>Điều này xác nhận nguyên tắc kế toán kép</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 1 - excercise 3 - 1.png" alt="Pivot table analysis" class="lab-image">
+                <p class="image-caption">Pivot table hiển thị tổng debit và credit cân bằng</p>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Hiểu Mục tiêu Cuối cùng</h3>
+            <ol>
+                <li>Xem lại hình ảnh dashboard mục tiêu trong <code>training-materials/data/sample/</code></li>
+                <li>Lưu ý các chỉ số chính chúng ta sẽ tạo:
+                    <ul>
+                        <li>Total Assets: $4.2M</li>
+                        <li>Total Liabilities: $1.8M</li>
+                        <li>Total Equity: $2.4M</li>
+                        <li>Current Ratio: 1.5</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Kết nối Dữ liệu với Mục tiêu</h3>
+            <ol>
+                <li>500K bản ghi giao dịch sẽ tổng hợp thành các giá trị tóm tắt này</li>
+                <li>Mã tài khoản sẽ ánh xạ với danh mục Tài sản, Nợ phải trả, Vốn chủ sở hữu</li>
+                <li>So sánh kỳ sẽ hiển thị xu hướng Q1, Q2, Q3 2024</li>
+                <li>Biểu đồ sẽ trực quan hóa cấu trúc tài sản và thành phần nợ phải trả</li>
+            </ol>
+        </div>
+
+        <div class="alert alert-info">
+            <strong>Kết quả Mong đợi:</strong> Dữ liệu mẫu được thiết kế để cân bằng, thể hiện nguyên tắc kế toán kép
+            đúng đắn.
+        </div>
+
+        <h2>Exercise 4: Tải và Xác thực Kết quả</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Xác minh Cân bằng Dữ liệu</h3>
+            <ol>
+                <li>Kiểm tra pivot table hiển thị giao dịch cân bằng:</li>
+                <ul>
+                    <li><strong>Tổng DEBIT</strong> nên bằng <strong>tổng CREDIT</strong> (về giá trị tuyệt đối)</li>
+                    <li>Điều này xác nhận kế toán kép đúng đắn</li>
+                    <li>Bất kỳ mất cân bằng nào đều cho thấy vấn đề chất lượng dữ liệu</li>
+                </ul>
+                <li>Lưu ý tổng khối lượng giao dịch để tham khảo</li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Lưu Công việc</h3>
+            <ol>
+                <li>Lưu workbook dưới tên <strong>"Module_01_Data_Exploration.xlsx"</strong></li>
+                <li>Điều này sẽ phục vụ như baseline cho Module 2</li>
+                <li>Đóng Excel để giải phóng tài nguyên hệ thống</li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Xác thực Môi trường</h3>
+            <ol>
+                <li>Xác nhận hệ thống đã thành công:</li>
+                <ul>
+                    <li>Tải bộ dữ liệu 500K+ dòng mà không có lỗi</li>
+                    <li>Tạo phân tích pivot table</li>
+                    <li>Xác minh cân bằng và cấu trúc dữ liệu</li>
+                </ul>
+                <li>Bạn đã sẵn sàng cho các thao tác Power Query trong Module 2</li>
+            </ol>
+        </div>
+
+        <div class="deliverables">
+            <h3>Kết quả Lab</h3>
+
+            <h4>✅ Thiết lập Môi trường Excel</h4>
+            <ul>
+                <li>Excel được cấu hình với Power Query và Data Model</li>
+                <li>Hiệu suất được xác minh với bộ dữ liệu 500K dòng</li>
+                <li>Môi trường sẵn sàng cho tự động hóa dữ liệu</li>
+            </ul>
+
+            <h4>✅ Hiểu biết về Dữ liệu</h4>
+            <ul>
+                <li>Cấu trúc dữ liệu giao dịch ngân hàng (6M bản ghi)</li>
+                <li>Nguyên tắc kế toán kép được xác minh (Debits = Credits)</li>
+                <li>Mục tiêu dashboard và chỉ số KPI được xác định</li>
+            </ul>
+
+            <h4>✅ Chuẩn bị cho Module tiếp theo</h4>
+            <ul>
+                <li>File baseline "Module_01_Data_Exploration.xlsx"</li>
+                <li>Hiểu biết về khối lượng và cấu trúc dữ liệu</li>
+                <li>Môi trường được xác thực cho Power Query operations</li>
+            </ul>
+        </div>
+
+        <h2>Bước tiếp theo</h2>
+        <p>Trong Module 2, bạn sẽ học:</p>
+        <ul>
+            <li>Kỹ thuật Power Query cơ bản để import và làm sạch dữ liệu</li>
+            <li>Kết hợp nhiều file giao dịch hàng tháng</li>
+            <li>Tích hợp với hệ thống tài khoản (Chart of Accounts)</li>
+            <li>Chuẩn bị dữ liệu sạch cho data modeling</li>
+        </ul>
+
+        <div class="nav-buttons">
+            <a href="../../../index_vi.html" class="btn btn-secondary">← Về Trang chủ</a>
+            <a href="../../module_02_power_query_basics/labs/lab_02_power_query_basics_vi.html"
+                class="btn btn-primary">Tiếp: Module 2 →</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2: Data Import and Basic Cleaning - Excel Data Automation Training</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292f;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
+            color: white;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #0969da;
+            border-bottom: 2px solid #d1d9e0;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            color: #24292f;
+            margin-top: 1.5rem;
+        }
+
+        .lab-info {
+            background: #f6f8fa;
+            border-left: 4px solid #0969da;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .step-box {
+            background: white;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .step-number {
+            background: #0969da;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #f6f8fa;
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .alert-info {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            color: #1e40af;
+        }
+
+        .alert-success {
+            background: #dcfce7;
+            border-left: 4px solid #22c55e;
+            color: #166534;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 3rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #d1d9e0;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #0969da;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #f6f8fa;
+            color: #24292f;
+            border: 1px solid #d1d9e0;
+        }
+
+        .lab-image {
+            max-width: 700px;
+            width: 100%;
+            height: auto;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lab-figure {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: #656d76;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .deliverables {
+            background: #e6f3ff;
+            border: 1px solid #0969da;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 2rem 0;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0969da;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="language-switcher">
+            <a href="lab_02_power_query_basics.html" class="lang-btn active">EN</a>
+            <a href="lab_02_power_query_basics_vi.html" class="lang-btn">VI</a>
+        </div>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../../index.html">Training Home</a> >
+                Module 2 >
+                Lab 2
+            </div>
+            <h1>Lab 2: Data Import and Basic Cleaning</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="lab-info">
+            <strong>Lab Overview:</strong> Import and clean the complete banking transaction dataset (12 million
+            records) that will be used to build your final dashboard.
+            <br><strong>Duration:</strong> 2 hours | <strong>Difficulty:</strong> Beginner
+        </div>
+
+        <h2>Prerequisites</h2>
+        <ul>
+            <li>Excel 365 or Excel 2019 with Power Query enabled</li>
+            <li>Large transaction dataset in training-materials/data/raw/transactions/ (500K rows per file)</li>
+            <li>Chart of accounts and hierarchy files</li>
+        </ul>
+
+        <h2>Lab Objectives</h2>
+        <p>By the end of this lab, you will be able to:</p>
+        <ul>
+            <li>Import large-scale banking transaction data</li>
+            <li>Combine multiple monthly files efficiently</li>
+            <li>Apply essential data cleaning</li>
+            <li>Connect transactions to account information</li>
+        </ul>
+        <li>Apply basic cleaning transformations</li>
+        <li>Create reusable query templates</li>
+        <li>Prepare data for banking analysis</li>
+        </ul>
+
+        <h2>Exercise 1: Import Raw Transaction Data</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Open Excel and Access Power Query</h3>
+            <ol>
+                <li>Open Excel and create a new workbook</li>
+                <li>Go to <strong>Data</strong> tab → <strong>Get Data</strong> → <strong>From File</strong> →
+                    <strong>From Folder</strong>
+                </li>
+                <li>Navigate to the sample data folder: <code>training-materials/data/raw/</code></li>
+                <li>Select the folder containing transaction files</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 1 - 1.png" alt="Get Data from Folder" class="lab-image">
+                <p class="image-caption">Access Power Query via Data > Get Data > From Folder</p>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Import Transaction Files</h3>
+            <ol>
+                <li>Click <strong>OK</strong> to load folder contents</li>
+                <li>Filter to show only <code>.csv</code> files</li>
+                <li>Click <strong>Combine</strong> → <strong>Combine & Transform Data</strong></li>
+                <li>Select <strong>First file as sample</strong> and click <strong>OK</strong></li>
+                <li>Rename query to <strong>Transactions</strong></li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 1 - 2.png" alt="Combine transaction files" class="lab-image">
+                <p class="image-caption">Combine and transform transaction CSV files</p>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>Expected Result:</strong> You should see a preview of combined transaction data with columns:
+                Source.Name (filename), Date, Account_Code, Description, Debit_Amount, Credit_Amount
+            </div>
+
+            <h3><span class="step-number">4</span>Configure Background Load Settings</h3>
+            <ol>
+                <li>In the Power Query Editor, go to <strong>File</strong> menu</li>
+                <li>Select <strong>Options and Settings</strong> > <strong>Query Options</strong></li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/Query Setting 1.1.png" alt="Query Options menu" class="lab-image">
+                <p class="image-caption">Access Query Options in Power Query Editor</p>
+            </div>
+
+            <ol start="3">
+                <li>In the Query Options dialog, navigate to <strong>Data Load</strong> settings</li>
+                <li>Configure background load settings for optimal performance</li>
+                <li>Click <strong>OK</strong></li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/Query Setting 1.2.png" alt="Query Options settings" class="lab-image">
+                <p class="image-caption">Configure background load settings for better performance</p>
+            </div>
+        </div>
+
+        <h2>Exercise 2: Basic Data Cleaning</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Remove Unnecessary Columns</h3>
+            <ol>
+                <li>Right-click on <strong>Source.Name</strong> column</li>
+                <li>Select <strong>Remove</strong></li>
+                <li>Remove any other system-generated columns not needed</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 2 - 1.png" alt="Remove columns" class="lab-image">
+                <p class="image-caption">Remove unnecessary columns from transaction data</p>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Standardize Account Codes</h3>
+            <ol>
+                <li>Select <strong>Account_Code</strong> column</li>
+                <li>Go to <strong>Transform</strong> tab → <strong>Format</strong> → <strong>Trim</strong></li>
+                <li>Right-click column → <strong>Change Type</strong> → <strong>Text</strong></li>
+                <li>Add Custom Column: <code>= Text.PadStart([AccountCode], 6, "0")</code></li>
+                <li>Name the new column <strong>Account_Code_Standard</strong></li>
+                <li>Remove original <strong>AccountCode</strong> column</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 2 - 2.1.png" alt="Standardize account codes" class="lab-image">
+                <p class="image-caption">Standardize account code format</p>
+            </div>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 2 - 2.2.png" alt="Account code result" class="lab-image">
+                <p class="image-caption">Result after account code standardization</p>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Why this matters:</strong> Consistent account code format ensures data integrity and proper
+                mapping to chart of accounts.
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Clean Transaction Descriptions</h3>
+            <ol>
+                <li>Select <strong>Description</strong> column</li>
+                <li>Apply <strong>Transform</strong> → <strong>Format</strong> → <strong>Trim</strong></li>
+                <li>Apply <strong>Transform</strong> → <strong>Format</strong> → <strong>Clean</strong> (removes
+                    non-printable characters)</li>
+                <li>Apply <strong>Transform</strong> → <strong>Format</strong> → <strong>Uppercase</strong></li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 2 - 3.png" alt="Clean descriptions" class="lab-image">
+                <p class="image-caption">Clean and format transaction descriptions</p>
+            </div>
+        </div>
+
+        <h2>Exercise 3: Create Chart of Accounts Lookup</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Import COA Data</h3>
+            <ol>
+                <li>Create new query: <strong>Data</strong> → <strong>Get Data</strong> → <strong>From File</strong> →
+                    <strong>From Text/CSV</strong>
+                </li>
+                <li>Select <code>chart_of_accounts.csv</code> from sample data</li>
+                <li>Click <strong>Transform Data</strong></li>
+                <li>Rename query to <strong>Accounts</strong></li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 3 - 1.png" alt="Import COA" class="lab-image">
+                <p class="image-caption">Import chart of accounts CSV file</p>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Clean COA Data</h3>
+            <ol>
+                <li>Promote first row to headers (if needed)</li>
+                <li>Rename columns to:
+                    <ul>
+                        <li><strong>Account_Code</strong></li>
+                        <li><strong>Account_Name</strong></li>
+                        <li><strong>Account_Type</strong></li>
+                        <li><strong>BCDKT_Category</strong></li>
+                    </ul>
+                </li>
+                <li>Apply <strong>Trim</strong> to all text columns</li>
+                <li>Standardize <strong>Account_Code</strong> using same padding method</li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Merge with Transaction Data</h3>
+            <ol>
+                <li>Go back to transaction query</li>
+                <li>Select <strong>Home</strong> → <strong>Merge Queries</strong></li>
+                <li>Select <strong>Account_Code_Standard</strong> from transactions</li>
+                <li>Select <strong>Account_Code</strong> from COA table</li>
+                <li>Choose <strong>Left Outer</strong> join type</li>
+                <li>Expand COA columns to add Account_Name, Account_Type and BCDKT_Category</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 3 - 3.1.png" alt="Merge queries" class="lab-image">
+                <p class="image-caption">Merge transactions with chart of accounts</p>
+            </div>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 3 - 3.2.png" alt="Expand columns" class="lab-image">
+                <p class="image-caption">Expand merged columns to add account details</p>
+            </div>
+        </div>
+
+        <h2>Exercise 4: Load and Validate Results</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Load Data to Excel</h3>
+            <ol>
+                <li>Select transaction query</li>
+                <li>Click <strong>Home</strong> → <strong>Close & Load</strong> → <strong>Close & Load To</strong></li>
+                <li>Choose <strong>Only Create Connection</strong> and select Add this data to the Data Model</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 4 - 1.png" alt="Load to Data Model" class="lab-image">
+                <p class="image-caption">Load data to Data Model only</p>
+            </div>
+            <div class="alert alert-info">
+                <strong>Why This Matters:</strong> Loading to Data Model instead of worksheet improves performance with
+                large datasets and enables advanced analytics features.
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Validate Results</h3>
+            <ol>
+                <li>Check total debit equals total credit</li>
+                <li>Verify all accounts have proper names</li>
+                <li>Confirm date ranges are correct</li>
+                <li>Review any data quality issues</li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Create Data Quality Report</h3>
+            <ol>
+                <li>Create pivot table from transaction data</li>
+                <li>Show count of records by <strong>Account_Type</strong></li>
+                <li>Show sum of amounts by <strong>BCDKT_Category</strong></li>
+                <li>Identify any accounts without COA matches</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 4 - 3.1.png" alt="Data quality pivot" class="lab-image">
+                <p class="image-caption">Create pivot table for data quality validation</p>
+            </div>
+
+            <div class="lab-figure">
+                <img src="images/module 2 - excercise 4 - 3.2.png" alt="Quality report result" class="lab-image">
+                <p class="image-caption">Data quality report showing account distribution</p>
+            </div>
+        </div>
+
+        <div class="deliverables">
+            <h3>Lab Deliverables</h3>
+
+            <h4>✅ Banking_Dashboard_Data.xlsx</h4>
+            <ul>
+                <li>Main workbook with cleaned transaction data</li>
+                <li>Transactions query with merged chart of accounts</li>
+                <li>Account_Name, Account_Type and BCDKT_Category columns added</li>
+            </ul>
+
+            <h4>✅ Data Quality Metrics</h4>
+            <ul>
+                <li>Zero balance discrepancies (Debit = Credit totals)</li>
+                <li>100% account code standardization (4-digit format)</li>
+                <li>All transactions linked to COA categories</li>
+                <li>Clean, trimmed text in all description fields</li>
+            </ul>
+
+            <h4>✅ Power Query Foundation</h4>
+            <ul>
+                <li>Reusable data connection templates</li>
+                <li>Merge operations for lookup tables</li>
+                <li>Ready for advanced transformations in Module 3</li>
+            </ul>
+        </div>
+
+        <h2>Next Steps</h2>
+        <p>In Module 3, you will learn advanced Power Query techniques including:</p>
+        <ul>
+            <li>Complex data merging scenarios</li>
+            <li>Error handling and data validation</li>
+            <li>Advanced transformation functions</li>
+            <li>Building robust, scalable queries</li>
+        </ul>
+
+        <div class="nav-buttons">
+            <a href="../../module_01_overview/labs/lab_01_setup.html" class="btn btn-secondary">← Previous: Module 1</a>
+            <a href="../../module_03_power_query_advanced/labs/lab_03_power_query_advanced.html"
+                class="btn btn-primary">Next: Module 3 →</a>
+        </div>
+    </div>
+</body>
+
+</html>

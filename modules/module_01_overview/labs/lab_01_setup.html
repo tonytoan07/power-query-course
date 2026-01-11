@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1: Environment Setup - Excel Data Automation Training</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292f;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
+            color: white;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #0969da;
+            border-bottom: 2px solid #d1d9e0;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            color: #24292f;
+            margin-top: 1.5rem;
+        }
+
+        .lab-info {
+            background: #f6f8fa;
+            border-left: 4px solid #0969da;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .step-box {
+            background: white;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .step-number {
+            background: #0969da;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #f6f8fa;
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .alert-info {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            color: #1e40af;
+        }
+
+        .alert-warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            color: #92400e;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 3rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #d1d9e0;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #0969da;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #f6f8fa;
+            color: #24292f;
+            border: 1px solid #d1d9e0;
+        }
+
+        .lab-image {
+            max-width: 700px;
+            width: 100%;
+            height: auto;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lab-figure {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: #656d76;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .deliverables {
+            background: #e6f3ff;
+            border: 1px solid #0969da;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 2rem 0;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0969da;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="language-switcher">
+            <a href="lab_01_setup.html" class="lang-btn active">EN</a>
+            <a href="lab_01_setup_vi.html" class="lang-btn">VI</a>
+        </div>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../../index.html">Training Home</a> >
+                Module 1 >
+                Lab 1
+            </div>
+            <h1>Lab 1: Environment Setup & Data Exploration</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="lab-info">
+            <strong>Lab Overview:</strong> Set up your Excel environment for banking data automation and explore sample
+            BCDKT datasets.
+            <br><strong>Duration:</strong> 2 hours | <strong>Difficulty:</strong> Beginner
+        </div>
+
+        <h2>Prerequisites</h2>
+        <ul>
+            <li>Microsoft Excel 365 or Excel 2019</li>
+            <li>Administrative rights to install add-ins</li>
+            <li>Sample banking data files (provided)</li>
+            <li>Basic understanding of Excel interface</li>
+        </ul>
+
+        <h2>Lab Objectives</h2>
+        <p>By the end of this lab, you will be able to:</p>
+        <ul>
+            <li>Configure Excel for Power Query and data modeling</li>
+            <li>Enable necessary add-ins for banking data analysis</li>
+            <li>Navigate and understand sample BCDKT data structure</li>
+            <li>Verify your environment is ready for advanced modules</li>
+        </ul>
+
+
+
+        <h2>Exercise 1: Large Dataset Exploration</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Examine the Transaction Dataset</h3>
+            <p>Navigate to the large transaction dataset:</p>
+            <ul>
+                <li><code>training-materials/data/raw/transactions/</code> (12 monthly files)</li>
+                <li>Each file contains ~500,000 records</li>
+                <li>Total dataset: ~6 million banking transactions (500K per month)</li>
+                <li><code>training-materials/data/raw/chart_of_accounts.csv</code></li>
+                <li><code>training-materials/data/raw/account_hierarchy.csv</code></li>
+            </ul>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Open Sample Monthly File</h3>
+            <ol>
+                <li>Open <code>transactions_2024_01.csv</code> in Excel</li>
+                <li>Review the data structure (500K+ rows):
+                    <ul>
+                        <li><strong>Date:</strong> Transaction date</li>
+                        <li><strong>Account_Code:</strong> 4-digit banking account code</li>
+                        <li><strong>Description:</strong> Transaction description in Vietnamese</li>
+                        <li><strong>Transaction_Type:</strong> Debit or Credit</li>
+                        <li><strong>Amount:</strong> Transaction amount in VND</li>
+                        <li><strong>Currency:</strong> Currency code (VND, USD, EUR)</li>
+                    </ul>
+                    <ul>
+                        <li><strong>TransactionID:</strong> Unique identifier</li>
+                        <li><strong>Date:</strong> Transaction date</li>
+                        <li><strong>AccountCode:</strong> Banking account code</li>
+                        <li><strong>TransactionType:</strong> DEPOSIT, WITHDRAWAL, TRANSFER, etc.</li>
+                        <li><strong>Currency:</strong> VND, USD, EUR</li>
+                        <li><strong>Amount:</strong> Transaction amount</li>
+                        <li><strong>Branch:</strong> Branch code (BR001-BR020)</li>
+                    </ul>
+                </li>
+                <li>Notice the realistic data volumes (500K+ rows)</li>
+                <li>Check account code formats (4-digit codes)</li>
+                <li>Verify date ranges (full 2024 year)</li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Examine Account Information</h3>
+            <ol>
+                <li>Open <code>training-materials/data/raw/chart_of_accounts.csv</code></li>
+                <li>Review the structure:
+                    <ul>
+                        <li><strong>Account_Code:</strong> Links to transaction data</li>
+                        <li><strong>Account_Name:</strong> Business-friendly names</li>
+                        <li><strong>Account_Type:</strong> Asset, Liability, Equity</li>
+                        <li><strong>BCDKT_Category:</strong> Vietnamese balance sheet classification</li>
+                    </ul>
+                </li>
+                <li>This will map transactions to balance sheet categories</li>
+            </ol>
+        </div>
+
+
+
+        <h2>Exercise 2: System Performance Test</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Test Large File Import</h3>
+            <ol>
+                <li>Create new Excel workbook</li>
+                <li>Go to <strong>Data > Get Data > From File > From Text/CSV</strong></li>
+                <li>Select <code>training-materials/data/raw/transactions/transactions_2024_01.csv</code> (500,000
+                    records)</li>
+                <li>Click <strong>Load</strong> (not Transform Data)</li>
+                <li>Monitor Excel performance and memory usage</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 1 - excercise 2 - 1.png" alt="Import CSV file" class="lab-image">
+                <p class="image-caption">Import transaction CSV file via Get Data</p>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Performance Notes:</strong>
+                <ul>
+                    <li>Loading may take 30-60 seconds</li>
+                    <li>Excel should handle 500K rows efficiently</li>
+                    <li>If slow, close other applications</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Verify Data Load</h3>
+            <ol>
+                <li>Check status bar - should show ~500,000 rows</li>
+                <li>Scroll through data to verify completeness</li>
+                <li>Check that all columns loaded correctly</li>
+                <li>Note Excel's performance with large dataset</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 1 - excercise 2 - 2.png" alt="Verify data load" class="lab-image">
+                <p class="image-caption">Verify data loaded correctly with 500K rows</p>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Save and Close</h3>
+            <ol>
+                <li>Save workbook as "Performance_Test.xlsx"</li>
+                <li>Close the file to free memory</li>
+                <li>This confirms your system can handle the full dataset</li>
+            </ol>
+        </div>
+
+        <h2>Exercise 3: Dashboard Data Preview</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Basic Data Analysis</h3>
+            <ol>
+                <li>With the transaction data loaded, create a simple pivot table:</li>
+                <ul>
+                    <li>Go to <strong>Insert > PivotTable</strong></li>
+                    <li>Drag <strong>TransactionType</strong> to Rows</li>
+                    <li>Drag <strong>Amount</strong> to Values</li>
+                    <li>This shows debit and credit totals</li>
+                </ul>
+                <li>You should see:
+                    <ul>
+                        <li><strong>DEBIT</strong>: Large positive amount (~$8.6B)</li>
+                        <li><strong>CREDIT</strong>: Large negative amount (~-$8.6B)</li>
+                        <li><strong>Grand Total</strong>: Should be 0.00 (balanced)</li>
+                    </ul>
+                </li>
+                <li><strong>Verify proper accounting</strong>: Debits (positive) + Credits (negative) = 0</li>
+                <li>This confirms double-entry bookkeeping principles</li>
+            </ol>
+
+            <div class="lab-figure">
+                <img src="images/module 1 - excercise 3 - 1.png" alt="Pivot table analysis" class="lab-image">
+                <p class="image-caption">Pivot table showing balanced debit and credit totals</p>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Understand Final Goal</h3>
+            <ol>
+                <li>Review the target dashboard image in <code>training-materials/data/sample/</code></li>
+                <li>Note the key metrics we'll create:
+                    <ul>
+                        <li>Total Assets</li>
+                        <li>Total Liabilities</li>
+                        <li>Total Equity</li>
+                        <li>Current Ratio</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Connect Data to Goal</h3>
+            <ol>
+                <li>The 500K transaction records will aggregate to these summary values</li>
+                <li>Account codes will map to Assets, Liabilities, Equity categories</li>
+                <li>Period comparison will show monthly 2024 trends</li>
+                <li>Charts will visualize asset structure and liability mix</li>
+            </ol>
+        </div>
+        <div class="alert alert-info">
+            <strong>Expected Result:</strong> The sample data is designed to be balanced, demonstrating proper
+            double-entry bookkeeping principles.
+        </div>
+
+        <h2>Exercise 4: Load and Validate Results</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span>Verify Data Balance</h3>
+            <ol>
+                <li>Check that your pivot table shows balanced transactions:</li>
+                <ul>
+                    <li><strong>DEBIT total</strong> should equal <strong>CREDIT total</strong> (in absolute values)
+                    </li>
+                    <li>This confirms proper double-entry bookkeeping</li>
+                    <li>Any imbalance indicates data quality issues</li>
+                </ul>
+                <li>Note the total transaction volume for reference</li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span>Save Your Work</h3>
+            <ol>
+                <li>Save the workbook as <strong>"Module_01_Data_Exploration.xlsx"</strong></li>
+                <li>This will serve as your baseline for Module 2</li>
+                <li>Close Excel to free system resources</li>
+            </ol>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span>Environment Validation</h3>
+            <ol>
+                <li>Confirm your system successfully:</li>
+                <ul>
+                    <li>Loaded 500K+ row dataset without errors</li>
+                    <li>Created pivot table analysis</li>
+                    <li>Verified data balance and structure</li>
+                </ul>
+                <li>You're now ready for Power Query operations in Module 2</li>
+            </ol>
+        </div>
+
+        <div class="deliverables">
+            <h3>Lab Deliverables</h3>
+
+            <h4>✅ Data Exploration</h4>
+            <ul>
+                <li>Basic pivot table showing transaction totals</li>
+                <li>Verified data balance (Debits = Credits)</li>
+                <li>Understanding of banking transaction structure</li>
+            </ul>
+
+            <h4>✅ Course Foundation</h4>
+            <ul>
+                <li>Familiarity with 500K+ row banking dataset</li>
+                <li>Understanding of multi-currency transactions (VND, EUR, USD)</li>
+                <li>Ready for Power Query data connections in Module 2</li>
+            </ul>
+        </div>
+
+
+
+        <h2>Next Steps</h2>
+        <p>In Module 2, you will learn:</p>
+        <ul>
+            <li>Advanced Power Query data connections</li>
+            <li>Data cleaning and transformation techniques</li>
+            <li>Banking-specific data standardization</li>
+            <li>Creating reusable query templates</li>
+        </ul>
+
+        <div class="nav-buttons">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Course</a>
+            <a href="../../module_02_power_query_basics/labs/lab_02_power_query_basics.html"
+                class="btn btn-primary">Next:
+                Module 2 →</a>
+        </div>
+    </div>
+</body>
+
+</html>

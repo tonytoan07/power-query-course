@@ -1,0 +1,14 @@
+Level_1,Level_2,Level_3,Account_Code,BCĐKT_Code
+Assets,Current Assets,Cash,1110,A110
+Assets,Current Assets,Bank Deposits,1120,A120
+Assets,Current Assets,Loans,1130,A130
+Assets,Current Assets,Investments,1140,A140
+Assets,Non-Current Assets,Fixed Assets,1150,A150
+Liabilities,Current Liabilities,Customer Deposits,2110,B210
+Liabilities,Current Liabilities,Short-term Debt,2120,B220
+Liabilities,Non-Current Liabilities,Long-term Debt,2130,B230
+Liabilities,Current Liabilities,Accrued Expenses,2140,B240
+Liabilities,Other Liabilities,Other Liabilities,2150,B250
+Equity,Share Capital,Share Capital,3110,C310
+Equity,Retained Earnings,Retained Earnings,3120,C320
+Equity,Additional Capital,Additional Capital,3130,C330
